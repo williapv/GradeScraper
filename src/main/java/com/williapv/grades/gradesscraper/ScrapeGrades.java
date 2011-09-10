@@ -42,7 +42,6 @@ public class ScrapeGrades {
             Properties props = new Properties();
             try {
                 props.load(new FileInputStream(propertiesFiles[idx]));
-                props.list(System.out);
                 getAndEmailGrades(props);
             } catch (IOException ex) {
                 Logger.getLogger(ScrapeGrades.class.getName()).log(Level.SEVERE, null, ex);
