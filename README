@@ -6,5 +6,6 @@ Build the project using "mvn clean install"
 Create a directory ~/.gradescraper
 Copy the scraper.properties file to your new directory
 Edit scraper.properties to contain your values
-Add multiple properties files for multiple students.  The applicaiton will pick them up and run them all.
-Scripts coming....
+Add multiple properties files for multiple students.  The application will pick them up and run them all.
+cd to scripts
+execute ./run.sh
