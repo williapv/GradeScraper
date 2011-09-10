@@ -1,0 +1,10 @@
+This application pulls grades from https://stihome.stpsb.org and emails them.
+
+To use, download and install Maven 3.
+Setup Maven to be on your path.
+Build the project using "mvn clean install"
+Create a directory ~/.gradescraper
+Copy the scraper.properties file to your new directory
+Edit scraper.properties to contain your values
+Add multiple properties files for multiple students.  The applicaiton will pick them up and run them all.
+Scripts coming....
