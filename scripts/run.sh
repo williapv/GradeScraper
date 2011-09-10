@@ -1,11 +1,9 @@
 #!/bin/bash
-current_dir=$(pwd)
 script_dir=$(dirname $0)
 
-echo $current_dir
 echo $script_dir
 # Absolute path this script is in, thus /home/user/bin
-BASEDIR=$current_dir/$script_dir
+BASEDIR=$script_dir
 export JAR_CLASSPATH=$BASEDIR/../target/gradescraper-1.0-SNAPSHOT.jar
 export JAR_CLASSPATH=$JAR_CLASSPATH:$BASEDIR/../target/lib/activation-1.1.jar
 export JAR_CLASSPATH=$JAR_CLASSPATH:$BASEDIR/../target/lib/commons-codec-1.2.jar

@@ -23,6 +23,8 @@ public class Emailer {
     
     private static final String MAIL_USERNAME_KEY = "mail.smtp.username";
     private static final String MAIL_PASSWORD_KEY = "mail.smtp.password";
+    private static final String MAIL_TO = "scraper.mail.to";
+    private static final String MAIL_FROM = "scraper.mail.from";
     
     private Properties properties;
     
@@ -55,9 +57,19 @@ public class Emailer {
             // Instantiatee a message
             Message msg = new MimeMessage(session);
             //Set message attributes
-            msg.setFrom(new InternetAddress(from));
-            InternetAddress[] address = {new InternetAddress(to)};
-            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setFrom(new InternetAddress(properties.getProperty(MAIL_FROM)));
+            String mailTo = properties.getProperty(MAIL_TO);
+            if(properties.getProperty(MAIL_TO) == null)
+            {
+                System.err.println("Error in email addresses " + mailTo);
+            }
+            String[] mailToRecipients = mailTo.split(",");
+            InternetAddress[] addresses = new InternetAddress[mailToRecipients.length];
+            for(int idx = 0; idx < mailToRecipients.length; idx++)
+            {
+                addresses[idx] = new InternetAddress(mailToRecipients[idx]);
+            }
+            msg.setRecipients(Message.RecipientType.TO, addresses);
             msg.setSubject(subject);
             msg.setSentDate(new Date());
             // Set message content
